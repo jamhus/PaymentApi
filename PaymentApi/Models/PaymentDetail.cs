@@ -22,6 +22,6 @@ namespace PaymentApi.Models
         public string ExpirationDate { get; set; }
      
         [Column(TypeName = ("nvarchar(3)"))]
-        public int CCV { get; set; }
+        public string CCV { get; set; }
     }
 }

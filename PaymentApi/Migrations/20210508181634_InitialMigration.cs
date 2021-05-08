@@ -2,7 +2,7 @@
 
 namespace PaymentApi.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,9 +13,9 @@ namespace PaymentApi.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CardOwnerName = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    CardNumber = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    ExpirationDate = table.Column<string>(type: "nvarchar(100)", nullable: true),
-                    CCV = table.Column<string>(type: "nvarchar(100)", nullable: false)
+                    CardNumber = table.Column<string>(type: "nvarchar(16)", nullable: true),
+                    ExpirationDate = table.Column<string>(type: "nvarchar(5)", nullable: true),
+                    CCV = table.Column<string>(type: "nvarchar(3)", nullable: true)
                 },
                 constraints: table =>
                 {

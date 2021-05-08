@@ -26,7 +26,6 @@ namespace PaymentApi.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CCV")
-                        .IsRequired()
                         .HasColumnType("nvarchar(3)");
 
                     b.Property<string>("CardNumber")

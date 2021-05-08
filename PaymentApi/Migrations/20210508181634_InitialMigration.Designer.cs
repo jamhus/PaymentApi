@@ -9,8 +9,8 @@ using PaymentApi.Data;
 namespace PaymentApi.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210508175033_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20210508181634_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,17 +28,16 @@ namespace PaymentApi.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CCV")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(3)");
 
                     b.Property<string>("CardNumber")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(16)");
 
                     b.Property<string>("CardOwnerName")
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("ExpirationDate")
-                        .HasColumnType("nvarchar(100)");
+                        .HasColumnType("nvarchar(5)");
 
                     b.HasKey("Id");
 
