@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { PaymentDetail } from 'src/app/shared/payment-detail.model';
 import { PaymentDetailService } from 'src/app/shared/payment-detail.service';
 
@@ -11,14 +12,20 @@ import { PaymentDetailService } from 'src/app/shared/payment-detail.service';
 })
 export class PaymentDetailFormComponent implements OnInit {
 
-  constructor(public service:PaymentDetailService) { }
+  constructor(
+    public service:PaymentDetailService,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
   }
 
   onSubmit(form: NgForm){
     this.service.postPaymentDetail().subscribe(
-      res => {this.resetForm(form)},
+      res => {
+        this.resetForm(form);
+        this.toastr.success("Card added successfully","Payment Details register");
+      },
       err=> {console.log(err)}
     )
   }
