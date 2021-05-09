@@ -1,1 +1,19 @@
-<p>payment-detail-form works!</p>
+<form>
+    <input type="hidden" name="id" [value]="service.formData.id"/>
+    <div class="form-group">
+        <label class="text-uppercase" for="cardOwnerName">Card owner name</label>
+        <input type="text" class="form-control form-control-lg" name="cardOwnerName" id="cardOwnerName" placeholder="Full name" #cardOwnerName="ngModel" [(ngModel)]="service.formData.cardOwnerName">
+    </div>
+    <div class="form-group">
+        <label class="text-uppercase" for="cardNumber">Card number</label>
+        <input type="text" class="form-control form-control-lg" name="cardNumber" id="cardNumber" placeholder="16 digits card number" #cardNumber="ngModel" [(ngModel)]="service.formData.cardNumber">
+    </div>
+    <div class="form-group">
+        <label class="text-uppercase" for="expirationDate">Expiration date</label>
+        <input type="text" class="form-control form-control-lg" name="expirationDate" id="expirationDate" placeholder="MM/YY" #expirationDate="ngModel" [(ngModel)]="service.formData.expirationDate">
+    </div>
+    <div class="form-group">
+        <label class="text-uppercase" for="ccv">Ccv</label>
+        <input type="password" class="form-control form-control-lg" name="ccv" id="ccv" placeholder="Ccv code" #ccv="ngModel" [(ngModel)]="service.formData.ccv">
+    </div>
+</form>
