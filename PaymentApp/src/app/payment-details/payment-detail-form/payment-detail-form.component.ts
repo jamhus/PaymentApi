@@ -21,10 +21,31 @@ export class PaymentDetailFormComponent implements OnInit {
   }
 
   onSubmit(form: NgForm){
+    if(this.service.formData.id === 0){
+      this.insertRecord(form);
+    }
+    else{
+      this.updateRecord(form);
+    }
+  }
+
+  insertRecord =(form:NgForm)=>{
     this.service.postPaymentDetail().subscribe(
       res => {
         this.resetForm(form);
+        this.service.getAllCards();
         this.toastr.success("Card added successfully","Payment Details register");
+      },
+      err=> {console.log(err)}
+    )
+  }
+
+  updateRecord =(form:NgForm)=>{
+    this.service.updatePaymentDetail().subscribe(
+      res => {
+        this.resetForm(form);
+        this.service.getAllCards();
+        this.toastr.info("Card updated successfully","Payment Details update");
       },
       err=> {console.log(err)}
     )

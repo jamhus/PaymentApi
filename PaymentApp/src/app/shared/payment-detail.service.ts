@@ -16,6 +16,15 @@ export class PaymentDetailService {
     return this.http.post(this.baseUrl, this.formData);
   };
 
+  updatePaymentDetail = () => {
+    return this.http.put(`${this.baseUrl}/${this.formData.id}`, this.formData);
+  };
+
+  deletePaymentDetail = (id:number) => {
+    return this.http.delete(`${this.baseUrl}/${id}`);
+  };
+
+
   getAllCards = () => {
     return this.http.get(this.baseUrl)
     .toPromise()

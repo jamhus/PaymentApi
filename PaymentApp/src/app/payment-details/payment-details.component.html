@@ -1,4 +1,4 @@
-<div class="jumbotron  bg-light py-3">
+<div class="jumbotron bg-light py-3">
     <h1 class="display-4 text-center">
         Payment details register
     </h1>
@@ -21,7 +21,10 @@
                     <td>{{pd.cardOwnerName}}</td>
                     <td>{{pd.cardNumber}}</td>
                     <td>{{pd.expirationDate}}</td>
-                    <td><i class="far fa-trash-alt fa-lg text-danger"></i></td>
+                    <td>
+                        <i (click)="fillTable(pd)" class="fas fa-edit fa-lg text-info"></i>
+                        <i (click)="deleteRecord(pd.id)" class="far fa-trash-alt fa-lg text-danger px-1"></i>
+                    </td>
                 </tr>
             </tbody>
         </table>
